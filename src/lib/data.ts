@@ -177,3 +177,79 @@ export const achievements = [
   "Governor's Award (Rajya Puraskar) - Bharat Scouts & Guides (2014)",
   "Black-belt in Karate, Shito-Ryu style (2010)",
 ];
+
+/** Unified scroll-stop sections for the datacube mod */
+export interface Section {
+  type: "profile" | "experience" | "project" | "skills" | "education";
+  tag: string;
+  title: string;
+  subtitle: string;
+  meta: string;
+  tags: string[];
+  sectionLabel: string;
+  bullets: string[];
+}
+
+export const sections: Section[] = [
+  // 0 — Profile / About
+  {
+    type: "profile",
+    tag: `PILOT DOSSIER`,
+    title: profile.name,
+    subtitle: profile.headline,
+    meta: `${profile.email} · ${profile.phone}`,
+    tags: ["LinkedIn", "GitHub"],
+    sectionLabel: "MISSION BRIEF",
+    bullets: [
+      profile.subheadline,
+      ...metrics.map((m) => `${m.label}: ${m.prefix ?? ""}${m.value}${m.suffix}`),
+    ],
+  },
+  // 1–3 — Experience
+  ...experience.map<Section>((exp, i) => ({
+    type: "experience",
+    tag: `REPAIR BAY :: WORK LOG ${i + 1}/${experience.length}`,
+    title: exp.company,
+    subtitle: exp.role,
+    meta: `${exp.dates} · ${exp.location}`,
+    tags: exp.tags,
+    sectionLabel: "DIAGNOSTICS LOG",
+    bullets: exp.bullets,
+  })),
+  // 4–6 — Projects
+  ...projects.map<Section>((proj, i) => ({
+    type: "project",
+    tag: `CARGO BAY :: PROJECT ${i + 1}/${projects.length}`,
+    title: proj.name,
+    subtitle: proj.description,
+    meta: "",
+    tags: proj.tags,
+    sectionLabel: "BUILD LOG",
+    bullets: proj.bullets,
+  })),
+  // 7 — Skills
+  {
+    type: "skills",
+    tag: "ARMORY :: TECHNICAL ARSENAL",
+    title: "Skills & Tools",
+    subtitle: "Full-stack, cloud-native, AI/ML",
+    meta: `${skills.groups.length} categories · ${skills.groups.reduce((n, g) => n + g.items.length, 0)} tools`,
+    tags: skills.groups.map((g) => g.title),
+    sectionLabel: "LOADOUT MANIFEST",
+    bullets: skills.groups.map((g) => `${g.title}: ${g.items.join(", ")}`),
+  },
+  // 8 — Education + Achievements
+  {
+    type: "education",
+    tag: "ACADEMY :: CREDENTIALS",
+    title: "Education",
+    subtitle: education[0].degree,
+    meta: `${education[0].school} · GPA ${education[0].gpa}`,
+    tags: education.map((e) => e.degree),
+    sectionLabel: "COMMENDATIONS",
+    bullets: [
+      ...education.map((e) => `${e.degree} — ${e.school} (${e.dates}, GPA ${e.gpa})`),
+      ...achievements,
+    ],
+  },
+];

@@ -1,28 +1,26 @@
 import { lazy, Suspense } from "react";
-import HudOverlay from "@/components/hud/HudOverlay";
+import { useMod } from "@/lib/useMod";
+import ModSelector from "@/components/ModSelector";
 
-const SpaceWindshield = lazy(
-  () => import("@/components/three/SpaceWindshield")
-);
+const SpacecraftMod = lazy(() => import("@/mods/spacecraft"));
+const ChronographMod = lazy(() => import("@/mods/chronograph"));
+const DataCubeMod = lazy(() => import("@/mods/datacube"));
 
-const TOTAL_CHAPTERS = 9;
+function ActiveMod({ mod }: { mod: string }) {
+  if (mod === "spacecraft") return <SpacecraftMod />;
+  if (mod === "chronograph") return <ChronographMod />;
+  return <DataCubeMod />;
+}
 
 export default function App() {
+  const mod = useMod();
+
   return (
     <>
-      {/* 3D scene: fixed, pointer-events-none so scroll passes through */}
+      <ModSelector />
       <Suspense fallback={<div className="fixed inset-0 bg-[#050510]" />}>
-        <SpaceWindshield />
+        <ActiveMod mod={mod} />
       </Suspense>
-
-      {/* 2D HUD overlay: fixed, pointer-events-none (children opt-in) */}
-      <HudOverlay />
-
-      {/* Scroll track: normal document flow, generates scrollY */}
-      <div
-        style={{ height: `${TOTAL_CHAPTERS * 100}vh` }}
-        aria-hidden
-      />
     </>
   );
 }
