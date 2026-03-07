@@ -124,7 +124,7 @@ function IsometricCamera() {
     <PerspectiveCamera
       ref={camRef}
       makeDefault
-      position={[35, 12, 59]}
+      position={[19, 11, 69]}
       fov={35}
       near={0.1}
       far={100}
