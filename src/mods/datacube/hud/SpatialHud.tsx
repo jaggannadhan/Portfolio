@@ -154,17 +154,20 @@ export default function SpatialHud({ companyIndex, isPurging, hoveredTag, onTagH
       )}
 
       {/* Scroll hint */}
-      <div
-        className="font-mono mt-5"
-        style={{
-          fontSize: "12px",
-          fontWeight: 700,
-          color: "rgba(240, 245, 250, 0.7)",
-          textShadow: "0 1px 6px rgba(0,0,0,0.9)",
-        }}
-      >
-        ▼ SCROLL TO CYCLE
-      </div>
+      {!isPurging && (
+        <div
+          className="font-mono mt-5 scroll-hint-bounce"
+          style={{
+            fontSize: "12px",
+            fontWeight: 700,
+            color: "#00ff88",
+            textShadow: "0 0 6px rgba(0,255,136,0.8), 0 0 14px rgba(0,255,136,0.4)",
+            animationDelay: "2s",
+          }}
+        >
+          ▼ SCROLL TO CYCLE
+        </div>
+      )}
     </div>
   );
 }

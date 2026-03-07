@@ -134,6 +134,25 @@ body {
   transform: translateY(-1px);
 }
 
+/* Scroll hint bounce — starts after HUD animations settle */
+@keyframes scrollHintBounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(6px); }
+  50% { transform: translateY(-2px); }
+  70% { transform: translateY(3px); }
+  85% { transform: translateY(-1px); }
+}
+.scroll-hint-bounce {
+  animation: scrollHintBounce 1.8s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+/* Music toggle hover */
+.music-toggle:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(0, 221, 255, 0.9), 0 0 18px rgba(0, 221, 255, 0.5) !important;
+}
+
 /* Meta copy-to-clipboard hover */
 .meta-copy:hover {
   color: #00ddff !important;
