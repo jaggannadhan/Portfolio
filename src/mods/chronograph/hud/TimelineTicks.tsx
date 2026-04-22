@@ -11,7 +11,7 @@ interface Props {
 
 export default function TimelineTicks({ chapterIndex, globalT }: Props) {
   return (
-    <div className="flex items-end gap-1">
+    <div className="flex items-end gap-0.5 sm:gap-1">
       {Array.from({ length: TOTAL }, (_, i) => {
         const active = i === chapterIndex;
         const past = i < chapterIndex;

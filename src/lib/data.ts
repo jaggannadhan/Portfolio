@@ -66,14 +66,24 @@ export const experience = [
 
 export const projects = [
   {
-    name: "CrowdDoing - Match4Action",
+    name: "ArasiyalAayvu",
     description:
-      "Analyzed user interactions to improve location-based recommendations leveraging Foursquare API integration.",
+      "Non-partisan civic-tech platform that aggregates Tamil Nadu's political and socioeconomic data into one bilingual (English + தமிழ்) interface covering 5,000+ politicians and 234 constituencies.",
     bullets: [
-      "Built information retrieval, location matching, and geo-tagging features using Foursquare API.",
-      "Achieved 35% improvement in location-based recommendation accuracy.",
+      "Built 50+ Python scrapers across 17 government data sources (ECI, MyNeta, NCRB, NITI Aayog, PLFS) using BeautifulSoup, Playwright, and Gemini 2.5 Pro for OCR.",
+      "Designed a 6,871-node knowledge graph in Google Firestore linking politicians → constituencies → manifesto promises → outcomes.",
     ],
-    tags: ["Foursquare API", "Python", "Location Matching", "Geo-tagging"],
+    tags: ["Python", "Playwright", "Firestore", "Gemini", "Next.js"],
+  },
+  {
+    name: "OmnesVident",
+    description:
+      "Distributed, AI-augmented news discovery platform that renders every breaking global story as a neon blip on an interactive 3D Earth with region-aware queries and urgency detection.",
+    bullets: [
+      "Shipped a four-layer distributed system: ingestion engine → AI refinement (OpenAI GPT-4o-mini + Vertex AI Gemini) → FastAPI on Cloud Run → React + Three.js/R3F globe on Vercel.",
+      "Pipelined every story through translation, geo-resolution, 7-way classification, fuzzy dedup, and breaking-news scoring before it hits the client.",
+    ],
+    tags: ["FastAPI", "React", "Three.js", "Firestore", "OpenAI", "Vertex AI"],
   },
   {
     name: "RAG-Based Legal Advisory Engine (iSage)",
@@ -86,22 +96,22 @@ export const projects = [
     tags: ["RAG", "Streamlit", "LLM", "Legal Tech", "Python"],
   },
   {
-    name: "Developer Documents",
+    name: "CrowdDoing - Match4Action",
     description:
-      "Conceived and implemented web application to automate secure storing and instantaneous sharing of API endpoints within/across organizations.",
+      "Analyzed user interactions to improve location-based recommendations leveraging Foursquare API integration.",
     bullets: [
-      "Designed secure storing and sharing system for API endpoints.",
-      "Implemented OAuth 2.0 authentication and authorization workflows.",
+      "Built information retrieval, location matching, and geo-tagging features using Foursquare API.",
+      "Achieved 35% improvement in location-based recommendation accuracy.",
     ],
-    tags: ["OAuth2", "API Design", "Security", "Full Stack"],
-  },
+    tags: ["Foursquare API", "Python", "Location Matching", "Geo-tagging"],
+  }
 ];
 
 export const skills = {
   groups: [
     {
       title: "Languages",
-      items: ["Python", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"],
+      items: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"],
     },
     {
       title: "Databases",
@@ -109,7 +119,7 @@ export const skills = {
     },
     {
       title: "Frameworks/Services",
-      items: ["Flask", "FastAPI", "Django", "React (v19+)", "Next.js"],
+      items: ["Flask", "FastAPI", "Django", "Spring Boot", "React (v19+)", "Next.js"],
     },
     {
       title: "Cloud Technologies",
@@ -122,11 +132,11 @@ export const skills = {
         "Data Modeling",
         "Schema Design",
         "Query Optimization",
-        "Real-time Streaming",
+        "Debezium CDC",
       ],
     },
     {
-      title: "AI / ML",
+      title: "AI/ML",
       items: [
         "Google ADK",
         "Vertex AI",
@@ -137,21 +147,22 @@ export const skills = {
       ],
     },
     {
+      title: "API Technologies",
+      items: ["REST", "GraphQL", "Apollo", "Strawberry", "WebSockets", "Pub-Sub"],
+    },
+    {
       title: "Testing",
       items: ["PyTest", "PyUnit", "React Testing Library", "Jest"],
     },
     {
       title: "Others",
       items: [
-        "CI/CD",
-        "Agile",
+        "CI/CD GitHub Actions",
         "Docker",
-        "GIT",
-        "Vibe-Coding",
+        "Kubernetes",
         "TDD",
-        "WebSockets",
         "Microservice Stacks",
-        "API Integration",
+        "Vibe-Coding",
       ],
     },
   ],

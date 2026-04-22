@@ -38,12 +38,8 @@ export default function BulletList({ companyIndex, isPurging, hoveredTag }: Bull
 
   return (
     <div
-      className="fixed z-20 pointer-events-none"
+      className="bullet-list fixed z-20 pointer-events-none"
       style={{
-        top: "50%",
-        right: "clamp(24px, 4vw, 64px)",
-        transform: "translateY(-50%)",
-        width: "min(38vw, 480px)",
         animation: isPurging ? "purgeGlitch 0.35s ease-in-out forwards" : "typeIn 0.4s ease-out",
       }}
     >

@@ -29,7 +29,7 @@ interface Props {
 function OriginContent() {
   return (
     <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-4">
-      <motion.h2 variants={fadeUp} className="text-3xl font-extrabold text-white" style={glow}>
+      <motion.h2 variants={fadeUp} className="text-2xl sm:text-3xl font-extrabold text-white" style={glow}>
         {profile.name}
       </motion.h2>
       <motion.p variants={fadeUp} className="text-base font-semibold text-violet-200" style={glow}>
@@ -62,7 +62,7 @@ function ImpactContent() {
       </motion.h3>
       {metrics.map((m) => (
         <motion.div key={m.label} variants={fadeUp} className="flex items-baseline gap-3">
-          <span className="text-3xl font-extrabold text-violet-200" style={glowFuchsia}>
+          <span className="text-2xl sm:text-3xl font-extrabold text-violet-200" style={glowFuchsia}>
             {m.prefix}{m.value}{m.suffix}
           </span>
           <span className="text-base font-medium text-white/60">{m.label}</span>

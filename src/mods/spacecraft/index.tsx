@@ -1,23 +1,44 @@
-import { lazy, Suspense } from "react";
-import HudOverlay from "@/components/hud/HudOverlay";
-
-const SpaceWindshield = lazy(
-  () => import("@/components/three/SpaceWindshield")
-);
-
-const TOTAL_CHAPTERS = 9;
+import { useEffect } from "react";
+import TopNav from "./sections/TopNav";
+import Hero from "./sections/Hero";
+import Receipts from "./sections/Receipts";
+import Work from "./sections/Work";
+import Skills from "./sections/Skills";
+import Footer from "./sections/Footer";
 
 export default function SpacecraftMod() {
+  useEffect(() => {
+    const prev = document.body.style.background;
+    document.body.style.background = "#fafaf9";
+    return () => {
+      document.body.style.background = prev;
+    };
+  }, []);
+
   return (
-    <>
-      <Suspense fallback={<div className="fixed inset-0 bg-[#050510]" />}>
-        <SpaceWindshield />
-      </Suspense>
-      <HudOverlay />
-      <div
-        style={{ height: `${TOTAL_CHAPTERS * 100}vh` }}
-        aria-hidden
-      />
-    </>
+    <div className="relative min-h-screen bg-[#fafaf9] text-zinc-900">
+      <BackdropTexture />
+      <TopNav />
+      <main className="relative mx-auto max-w-[1104px] px-5 sm:px-8">
+        <Hero />
+        <Receipts />
+        <Work />
+        <Skills />
+        <Footer />
+      </main>
+    </div>
+  );
+}
+
+function BackdropTexture() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 -z-10"
+      style={{
+        background:
+          "radial-gradient(1200px 600px at 20% -10%, rgba(99,102,241,0.06), transparent 60%), radial-gradient(900px 500px at 110% 10%, rgba(16,185,129,0.05), transparent 60%)",
+      }}
+    />
   );
 }

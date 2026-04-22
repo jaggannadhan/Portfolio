@@ -46,12 +46,8 @@ export default function SpatialHud({ companyIndex, isPurging, hoveredTag, onTagH
 
   return (
     <div
-      className="fixed z-20 pointer-events-none"
+      className="spatial-hud fixed z-20 pointer-events-none"
       style={{
-        top: "50%",
-        left: "clamp(24px, 4vw, 64px)",
-        transform: "translateY(-50%)",
-        maxWidth: "min(36vw, 420px)",
         animation: isPurging ? "purgeGlitch 0.35s ease-in-out forwards" : "typeIn 0.4s ease-out",
       }}
     >
@@ -145,6 +141,7 @@ export default function SpatialHud({ companyIndex, isPurging, hoveredTag, onTagH
                 }}
                 onMouseEnter={() => isSkills && onTagHover(i)}
                 onMouseLeave={() => isSkills && onTagHover(-1)}
+                onClick={() => isSkills && onTagHover(hoveredTag === i ? -1 : i)}
               >
                 {t}
               </Tag>

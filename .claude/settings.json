@@ -51,7 +51,21 @@
       "Read(//private/tmp/**)",
       "Bash(npx create-vite@latest jv-portfolio-temp --template react-ts)",
       "Bash(cp -r /tmp/jv-portfolio-temp/* /tmp/jv-portfolio-temp/.* /Users/jv/Documents/MyProjects/Portfolio/)",
-      "Bash(rm -rf /tmp/jv-portfolio-temp)"
+      "Bash(rm -rf /tmp/jv-portfolio-temp)",
+      "WebFetch(domain:www.amityadav.tech)",
+      "Bash(grep -iE \"\\(image|screen|paste|\\\\.png$|\\\\.jpg$|\\\\.jpeg$\\)\")",
+      "Read(//Users/jv/Downloads/**)",
+      "Read(//private/var/folders/**)",
+      "Read(//Users/jv/**)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/jv/Downloads/images/JV_prof_headshot.png)",
+      "Bash(cp /Users/jv/Downloads/images/JV_prof_headshot.png /Users/jv/Documents/MyProjects/Portfolio/src/assets/images/portrait.png)",
+      "Bash(sips --cropToHeightWidth 840 1150 --cropOffset -30 0 /Users/jv/Documents/MyProjects/Portfolio/src/assets/images/portrait.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/jv/Documents/MyProjects/Portfolio/src/assets/images/portrait.png)",
+      "Bash(npx tsc *)",
+      "Bash(xargs ls *)",
+      "Bash(lsof -ti:5173,5174)",
+      "Bash(xargs kill *)",
+      "Bash(gh repo *)"
     ]
   }
 }

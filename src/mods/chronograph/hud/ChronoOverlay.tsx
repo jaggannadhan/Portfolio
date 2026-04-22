@@ -39,7 +39,7 @@ export default function ChronoOverlay() {
   return (
     <div className="fixed inset-0 z-10 pointer-events-none">
       {/* Top left: temporal status */}
-      <div className="absolute left-4 top-4 sm:left-6 sm:top-6 pointer-events-none">
+      <div className="absolute left-4 top-4 sm:left-6 sm:top-6 pointer-events-none hidden sm:block">
         <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-violet-400/40">
           CHRONOGRAPH v4.2
         </div>
@@ -58,8 +58,8 @@ export default function ChronoOverlay() {
         </div>
       </div>
 
-      {/* Top center: epoch name */}
-      <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 text-center">
+      {/* Top center: epoch name — hidden below sm to avoid ModSelector collision */}
+      <div className="absolute left-1/2 top-4 -translate-x-1/2 sm:top-6 text-center hidden sm:block">
         <div className="font-mono text-[9px] uppercase tracking-[0.3em] text-violet-400/30">
           {"<"} EPOCH {state.chapterIndex + 1} / 9 {">"}
         </div>

@@ -206,7 +206,7 @@ export default function MechanicScene({ companyIndex }: MechanicSceneProps) {
       {/* Orientation readout — DOM overlay */}
       <div
         ref={domRef}
-        className="absolute top-20 right-7 z-30 pointer-events-none font-mono"
+        className="orientation-readout absolute top-20 right-7 z-30 pointer-events-none font-mono"
         style={{
           fontSize: "12px",
           fontWeight: 700,

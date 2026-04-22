@@ -153,6 +153,41 @@ body {
   text-shadow: 0 0 8px rgba(0, 221, 255, 0.9), 0 0 18px rgba(0, 221, 255, 0.5) !important;
 }
 
+/* ── Mod 3: SpatialHud / BulletList — responsive positioning ── */
+.spatial-hud {
+  top: 50%;
+  left: clamp(24px, 4vw, 64px);
+  transform: translateY(-50%);
+  max-width: min(36vw, 420px);
+}
+.bullet-list {
+  top: 50%;
+  right: clamp(24px, 4vw, 64px);
+  transform: translateY(-50%);
+  width: min(38vw, 480px);
+}
+@media (max-width: 767px) {
+  .spatial-hud {
+    top: 72px;
+    left: 16px;
+    right: 16px;
+    transform: none;
+    max-width: none;
+  }
+  .bullet-list {
+    top: auto;
+    bottom: 72px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    transform: none;
+  }
+  /* Hide the 3D-orientation readout on mobile — competes with ModSelector */
+  .orientation-readout {
+    display: none;
+  }
+}
+
 /* Meta copy-to-clipboard hover */
 .meta-copy:hover {
   color: #00ddff !important;

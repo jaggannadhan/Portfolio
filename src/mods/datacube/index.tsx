@@ -22,38 +22,21 @@ export default function DataCubeMod() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [musicPlaying, setMusicPlaying] = useState(false);
 
-  // Background music — lazy-loaded on first user interaction
   useEffect(() => {
-    const initMusic = () => {
-      if (audioRef.current) return; // already initialized
-      const audio = new Audio(MUSIC_URL);
-      audio.loop = true;
-      audio.volume = 0.3;
-      audioRef.current = audio;
-      audio.play().then(() => setMusicPlaying(true)).catch(() => {});
-      cleanup();
-    };
-
-    const cleanup = () => {
-      window.removeEventListener("wheel", initMusic);
-      window.removeEventListener("click", initMusic);
-      window.removeEventListener("touchstart", initMusic);
-    };
-
-    window.addEventListener("wheel", initMusic);
-    window.addEventListener("click", initMusic);
-    window.addEventListener("touchstart", initMusic);
-
     return () => {
       audioRef.current?.pause();
-      cleanup();
     };
   }, []);
 
   const toggleMusic = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation(); // prevent global click from re-initializing audio
-    const audio = audioRef.current;
-    if (!audio) return;
+    e.stopPropagation();
+    let audio = audioRef.current;
+    if (!audio) {
+      audio = new Audio(MUSIC_URL);
+      audio.loop = true;
+      audio.volume = 0.3;
+      audioRef.current = audio;
+    }
     if (audio.paused) {
       audio.play().then(() => setMusicPlaying(true)).catch(() => {});
     } else {
@@ -160,8 +143,8 @@ export default function DataCubeMod() {
         onClick={toggleMusic}
         className="fixed z-30 font-mono music-toggle"
         style={{
-          bottom: "clamp(20px, 3vw, 40px)",
-          left: "clamp(24px, 4vw, 64px)",
+          bottom: "clamp(12px, 3vw, 40px)",
+          left: "clamp(12px, 4vw, 64px)",
           fontSize: "12px",
           fontWeight: 700,
           letterSpacing: "0.5px",
@@ -169,11 +152,12 @@ export default function DataCubeMod() {
           textShadow: musicPlaying
             ? "0 0 6px rgba(0,221,255,0.8), 0 0 14px rgba(0,221,255,0.4)"
             : "none",
-          background: "none",
-          border: "none",
+          background: "rgba(0,0,0,0.35)",
+          border: "1px solid rgba(0,221,255,0.15)",
+          borderRadius: "8px",
           cursor: "pointer",
-          padding: 0,
-          transition: "color 0.2s, text-shadow 0.2s",
+          padding: "8px 12px",
+          transition: "color 0.2s, text-shadow 0.2s, background 0.2s",
         }}
       >
         {musicPlaying ? "♫ SND ON" : "♫ SND OFF"}

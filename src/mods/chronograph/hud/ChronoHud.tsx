@@ -33,8 +33,8 @@ export default function ChronoHud({
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         style={{ willChange: "transform, opacity", perspective: "1000px" }}
       >
-        <div className="pointer-events-auto w-[clamp(320px,42vw,620px)] max-sm:w-[92vw]">
-          <div className="relative p-5">
+        <div className="pointer-events-auto w-[min(92vw,620px)] sm:w-[clamp(360px,42vw,620px)]">
+          <div className="relative p-4 sm:p-5">
             {/* Temporal header */}
             <div className="mb-3 flex items-center gap-2 border-b border-violet-500/15 pb-2">
               <div className={`h-1.5 w-1.5 rounded-full ${isScrolling ? "bg-fuchsia-400 animate-pulse" : "bg-violet-400"} shadow-[0_0_6px_#8b5cf6]`} />
