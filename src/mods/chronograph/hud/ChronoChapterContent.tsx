@@ -120,7 +120,19 @@ function ArtifactsContent() {
       </motion.h3>
       {projects.map((p) => (
         <motion.div key={p.name} variants={fadeUp} className="space-y-2">
-          <h4 className="text-base font-bold text-white" style={glow}>{p.name}</h4>
+          <div className="flex items-baseline gap-3">
+            <h4 className="text-base font-bold text-white" style={glow}>{p.name}</h4>
+            {p.url && (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] uppercase tracking-[0.2em] text-fuchsia-300/80 transition-colors hover:text-fuchsia-200"
+              >
+                {p.url.includes("github.com") ? "Repo ↗" : "Live ↗"}
+              </a>
+            )}
+          </div>
           <p className="text-sm font-medium text-white/60">{p.description}</p>
           <ul className="space-y-1.5">
             {p.bullets.map((b, i) => (

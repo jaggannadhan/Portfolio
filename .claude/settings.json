@@ -65,7 +65,8 @@
       "Bash(xargs ls *)",
       "Bash(lsof -ti:5173,5174)",
       "Bash(xargs kill *)",
-      "Bash(gh repo *)"
+      "Bash(gh repo *)",
+      "Bash(make help *)"
     ]
   }
 }

@@ -53,7 +53,7 @@ export default function SpatialHud({ companyIndex, isPurging, hoveredTag, onTagH
     >
       {/* System tag */}
       <div
-        className="font-mono uppercase tracking-[0.35em] mb-3"
+        className="font-mono uppercase tracking-[0.35em] mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1"
         style={{
           fontSize: "12px",
           fontWeight: 700,
@@ -61,7 +61,23 @@ export default function SpatialHud({ companyIndex, isPurging, hoveredTag, onTagH
           textShadow: "0 0 6px rgba(255,221,0,0.8), 0 0 14px rgba(255,221,0,0.4)",
         }}
       >
-        {sec.tag}
+        <span>{sec.tag}</span>
+        {sec.url && (
+          <a
+            href={sec.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+            style={{
+              fontSize: "11px",
+              color: "#00ff88",
+              textShadow: "0 0 6px rgba(0,255,136,0.8), 0 0 14px rgba(0,255,136,0.4)",
+              textDecoration: "none",
+            }}
+          >
+            {sec.url.includes("github.com") ? "REPO ↗" : "LIVE ↗"}
+          </a>
+        )}
       </div>
 
       {/* Title — white, large, bold */}

@@ -64,7 +64,15 @@ export const experience = [
   },
 ];
 
-export const projects = [
+export interface Project {
+  name: string;
+  description: string;
+  bullets: string[];
+  tags: string[];
+  url?: string;
+}
+
+export const projects: Project[] = [
   {
     name: "ArasiyalAayvu",
     description:
@@ -74,6 +82,7 @@ export const projects = [
       "Designed a 6,871-node knowledge graph in Google Firestore linking politicians → constituencies → manifesto promises → outcomes.",
     ],
     tags: ["Python", "Playwright", "Firestore", "Gemini", "Next.js"],
+    url: "https://arasiyal-aayvu.vercel.app",
   },
   {
     name: "OmnesVident",
@@ -84,6 +93,7 @@ export const projects = [
       "Pipelined every story through translation, geo-resolution, 7-way classification, fuzzy dedup, and breaking-news scoring before it hits the client.",
     ],
     tags: ["FastAPI", "React", "Three.js", "Firestore", "OpenAI", "Vertex AI"],
+    url: "https://omnes-vident.vercel.app",
   },
   {
     name: "RAG-Based Legal Advisory Engine (iSage)",
@@ -94,6 +104,7 @@ export const projects = [
       "Developed interactive Streamlit interface for legal document querying.",
     ],
     tags: ["RAG", "Streamlit", "LLM", "Legal Tech", "Python"],
+    url: "https://github.com/jaggannadhan/iSage",
   },
   {
     name: "CrowdDoing - Match4Action",
@@ -199,6 +210,7 @@ export interface Section {
   tags: string[];
   sectionLabel: string;
   bullets: string[];
+  url?: string;
 }
 
 export const sections: Section[] = [
@@ -227,7 +239,7 @@ export const sections: Section[] = [
     sectionLabel: "DIAGNOSTICS LOG",
     bullets: exp.bullets,
   })),
-  // 4–6 — Projects
+  // 4–7 — Projects
   ...projects.map<Section>((proj, i) => ({
     type: "project",
     tag: `CARGO BAY :: PROJECT ${i + 1}/${projects.length}`,
@@ -237,6 +249,7 @@ export const sections: Section[] = [
     tags: proj.tags,
     sectionLabel: "BUILD LOG",
     bullets: proj.bullets,
+    url: proj.url,
   })),
   // 7 — Skills
   {
