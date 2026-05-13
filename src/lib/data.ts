@@ -107,14 +107,15 @@ export const projects: Project[] = [
     url: "https://github.com/jaggannadhan/iSage",
   },
   {
-    name: "CrowdDoing - Match4Action",
+    name: "BrawnedW.Jug",
     description:
-      "Analyzed user interactions to improve location-based recommendations leveraging Foursquare API integration.",
+      "Paid Android fitness app that wraps a real adaptive training algorithm in a Solo Leveling-style Rank/Level/XP engagement engine — onboarding inputs feed a multi-agent LLM pipeline that emits a personalized seven-day regime.",
     bullets: [
-      "Built information retrieval, location matching, and geo-tagging features using Foursquare API.",
-      "Achieved 35% improvement in location-based recommendation accuracy.",
+      "Shipped offline-first Android client in Kotlin + Jetpack Compose with Room mirroring every Firestore read, so live workouts survive screen locks and lost connectivity.",
+      "Designed multi-agent LLM synthesis (Firebase Functions) + per-session over/undertrain analyzer that re-tunes load, swaps movements, and inserts deloads based on completed reps and RPE.",
     ],
-    tags: ["Foursquare API", "Python", "Location Matching", "Geo-tagging"],
+    tags: ["Kotlin", "Jetpack Compose", "Firebase", "Room", "LLM", "Android"],
+    url: "https://brawnedwjug.vercel.app",
   }
 ];
 
