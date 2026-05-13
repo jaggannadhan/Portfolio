@@ -109,12 +109,12 @@ export const projects: Project[] = [
   {
     name: "BrawnedW.Jug",
     description:
-      "Paid Android fitness app that wraps a real adaptive training algorithm in a Solo Leveling-style Rank/Level/XP engagement engine — onboarding inputs feed a multi-agent LLM pipeline that emits a personalized seven-day regime.",
+      "A Paid multi-platform where Solo Leveling-style fitness app (Live on Android, Coming soon on iOS) that sits on top of a real adaptive training algorithm — a Claude-powered multi-agent synthesis pipeline emits each user's personalized seven-day regime, then re-tunes it after every session.",
     bullets: [
-      "Shipped offline-first Android client in Kotlin + Jetpack Compose with Room mirroring every Firestore read, so live workouts survive screen locks and lost connectivity.",
-      "Designed multi-agent LLM synthesis (Firebase Functions) + per-session over/undertrain analyzer that re-tunes load, swaps movements, and inserts deloads based on completed reps and RPE.",
+      "Solo-shipped end-to-end across a single monorepo: Kotlin + Jetpack Compose Android client (Hilt-graphed MVVM, pure-Kotlin domain layer, offline-first Room mirroring Firestore, foreground-service workout timer), Next.js 15 + Tailwind v4 marketing site on Vercel, and a TypeScript Firebase Functions backend.",
+      "Designed a production agent pipeline on Cloud Functions: two Claude agents → rule-based + LLM verifiers → retry budgets → per-user rate limiting + token telemetry, with per-agent progress streamed to Firestore so the client UI re-renders synthesis state in real time.",
     ],
-    tags: ["Kotlin", "Jetpack Compose", "Firebase", "Room", "LLM", "Android"],
+    tags: ["Kotlin", "Jetpack Compose", "Firebase", "Claude Agents", "TypeScript", "Next.js"],
     url: "https://brawnedwjug.vercel.app",
   }
 ];
