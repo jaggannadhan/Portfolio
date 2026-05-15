@@ -1,5 +1,6 @@
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useDocumentVisible } from "@/lib/useDocumentVisible";
 import * as THREE from "three";
 import {
   EffectComposer,
@@ -91,13 +92,21 @@ function PostProcessing() {
 }
 
 export default function TimeTunnel() {
+  const visible = useDocumentVisible();
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 6], fov: BASE_FOV }}
         dpr={[1, 1.5]}
-        gl={{ antialias: false, alpha: false }}
+        frameloop={visible ? "always" : "never"}
+        gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }}
         style={{ background: "#030208" }}
+        onCreated={({ gl }) => {
+          const canvas = gl.domElement;
+          canvas.addEventListener("webglcontextlost", (e) => {
+            e.preventDefault();
+          });
+        }}
       >
         <Suspense fallback={null}>
           <CameraRig />

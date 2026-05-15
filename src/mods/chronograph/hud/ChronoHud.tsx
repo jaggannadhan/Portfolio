@@ -33,7 +33,7 @@ export default function ChronoHud({
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         style={{ willChange: "transform, opacity", perspective: "1000px" }}
       >
-        <div className="pointer-events-auto w-[min(92vw,620px)] sm:w-[clamp(360px,42vw,620px)]">
+        <div className="pointer-events-auto w-[min(92vw,620px)] sm:w-[clamp(420px,62vw,1000px)]">
           <div className="relative p-4 sm:p-5">
             {/* Temporal header */}
             <div className="mb-3 flex items-center gap-2 border-b border-violet-500/15 pb-2">

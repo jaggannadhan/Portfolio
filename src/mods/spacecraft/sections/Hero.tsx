@@ -11,7 +11,7 @@ export default function Hero() {
             Full-Stack · Agentic AI · Data
           </p>
           <h1 className="text-[clamp(1.875rem,5.5vw,4rem)] font-semibold leading-[1.1] tracking-tight text-zinc-900">
-            A Full-Stack Engineer shipping{" "}
+            A Senior Full-Stack Engineer shipping{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
               agentic AI
             </span>{" "}

@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect, Suspense, useEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useDocumentVisible } from "@/lib/useDocumentVisible";
 import { PerspectiveCamera, Environment, OrbitControls } from "@react-three/drei";
 import {
   EffectComposer,
@@ -196,6 +197,7 @@ function CameraTracker() {
 
 export default function MechanicScene({ companyIndex }: MechanicSceneProps) {
   const domRef = useRef<HTMLDivElement>(null);
+  const visible = useDocumentVisible();
 
   useEffect(() => {
     orientationRef.current = domRef.current;
@@ -217,8 +219,16 @@ export default function MechanicScene({ companyIndex }: MechanicSceneProps) {
       />
 
       <Canvas
-        gl={{ antialias: true, alpha: false }}
+        dpr={[1, 1.5]}
+        frameloop={visible ? "always" : "never"}
+        gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }}
         style={{ background: "#0a0e10" }}
+        onCreated={({ gl }) => {
+          const canvas = gl.domElement;
+          canvas.addEventListener("webglcontextlost", (e) => {
+            e.preventDefault();
+          });
+        }}
       >
         <IsometricCamera />
         <OrbitControls enablePan={false} enableZoom={false} />

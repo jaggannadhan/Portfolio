@@ -195,6 +195,12 @@ export const education = [
   },
 ];
 
+export const philosophies = [
+  "Happiness is a state of mind, truly attainable when you realize there is no better time or way to live. Only a strong body and a healthy mind can sustain the epiphany. Live Fluid, Train Hard!",
+  "The caliber of a human is suppressed only by the people they are surrounded by.",
+  "Nothing is more precious than the Blue Rock we live on. Don't just live on it, live with it!",
+];
+
 export const achievements = [
   "Pioneered the first Jiu-Jitsu club at UMass Boston (President, 2022)",
   "Governor's Award (Rajya Puraskar) - Bharat Scouts & Guides (2014)",

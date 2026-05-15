@@ -114,44 +114,47 @@ function EraContent({ index }: { index: number }) {
 /* -- Epoch 5: Data Artifacts -- */
 function ArtifactsContent() {
   return (
-    <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-5">
+    <motion.div variants={stagger} initial="hidden" animate="show" className="space-y-4">
       <motion.h3 variants={fadeUp} className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-violet-300/60">
         {">> DATA_ARTIFACT :: Projects"}
       </motion.h3>
-      {projects.map((p) => (
-        <motion.div key={p.name} variants={fadeUp} className="space-y-2">
-          <div className="flex items-baseline gap-3">
-            <h4 className="text-base font-bold text-white" style={glow}>{p.name}</h4>
-            {p.url && (
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-[10px] uppercase tracking-[0.2em] text-fuchsia-300/80 transition-colors hover:text-fuchsia-200"
-              >
-                {p.url.includes("github.com") ? "Repo ↗" : "Live ↗"}
-              </a>
-            )}
-          </div>
-          <p className="text-sm font-medium text-white/60">{p.description}</p>
-          <ul className="space-y-1.5">
-            {p.bullets.map((b, i) => (
-              <li key={i} className="flex gap-2 text-sm font-medium text-white/75">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400 shadow-[0_0_4px_#a78bfa]" />
-                {b}
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            {p.tags.map((t) => (
-              <span key={t} className="rounded-full border border-violet-500/20 bg-violet-500/8 px-2.5 py-0.5 text-xs font-medium text-violet-200/60">
-                {t}
-              </span>
-            ))}
-          </div>
-          <div className="h-px bg-white/5" />
-        </motion.div>
-      ))}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {projects.map((p) => (
+          <motion.a
+            key={p.name}
+            variants={fadeUp}
+            href={p.url}
+            target={p.url ? "_blank" : undefined}
+            rel={p.url ? "noopener noreferrer" : undefined}
+            onClick={p.url ? undefined : (e) => e.preventDefault()}
+            className="group flex flex-col gap-3 rounded-xl border border-violet-400/35 bg-violet-500/10 p-5 transition-colors hover:border-fuchsia-400/55 hover:bg-violet-500/20"
+          >
+            <div className="flex items-baseline justify-between gap-3">
+              <h4 className="text-lg font-bold leading-tight text-white" style={glow}>
+                {p.name}
+              </h4>
+              {p.url && (
+                <span className="shrink-0 font-mono text-[11px] uppercase tracking-[0.2em] text-fuchsia-300/80 transition-colors group-hover:text-fuchsia-200">
+                  {p.url.includes("github.com") ? "Repo ↗" : "Live ↗"}
+                </span>
+              )}
+            </div>
+            <p className="text-[13.5px] leading-relaxed text-white/65 line-clamp-4">
+              {p.description}
+            </p>
+            <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
+              {p.tags.slice(0, 4).map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-violet-500/20 bg-violet-500/8 px-2.5 py-0.5 font-mono text-[11px] tracking-wide text-violet-200/65"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </motion.a>
+        ))}
+      </div>
     </motion.div>
   );
 }

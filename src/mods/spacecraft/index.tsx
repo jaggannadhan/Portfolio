@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import Receipts from "./sections/Receipts";
 import Work from "./sections/Work";
 import Skills from "./sections/Skills";
+import Philosophies from "./sections/Philosophies";
 import Footer from "./sections/Footer";
 
 export default function SpacecraftMod() {
@@ -24,6 +25,7 @@ export default function SpacecraftMod() {
         <Receipts />
         <Work />
         <Skills />
+        <Philosophies />
         <Footer />
       </main>
     </div>
