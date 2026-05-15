@@ -66,7 +66,8 @@
       "Bash(lsof -ti:5173,5174)",
       "Bash(xargs kill *)",
       "Bash(gh repo *)",
-      "Bash(make help *)"
+      "Bash(make help *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

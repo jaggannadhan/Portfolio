@@ -166,8 +166,8 @@ export default function SpatialHud({ companyIndex, isPurging, hoveredTag, onTagH
         </div>
       )}
 
-      {/* Scroll hint */}
-      {!isPurging && (
+      {/* Scroll hint — hidden on the final (Education) section */}
+      {!isPurging && sec.type !== "education" && (
         <div
           className="font-mono mt-5 scroll-hint-bounce"
           style={{
