@@ -4,7 +4,7 @@ export const profile = {
   phone: "+1 (862) 226-2405",
   linkedin: "https://www.linkedin.com/in/jvenu94",
   github: "https://github.com/jaggannadhan",
-  headline: "Full-Stack Engineer | Agentic Workflows | RAG & Data Engineering",
+  headline: "AI Engineer | Agentic Workflows | RAG & Data Engineering",
   subheadline:
     "Building production AI orchestration with LangGraph & DeepAgents, cloud-native microservices on GCP/Azure/AWS, and scalable data pipelines.",
 };
