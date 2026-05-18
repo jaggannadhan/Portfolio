@@ -25,7 +25,7 @@ export const metrics: {
 export const experience = [
   {
     company: "Leah (formerly ContractPodAi)",
-    role: "Software Engineer",
+    role: "Senior AI Engineer",
     location: "NY, NY",
     dates: "Apr 2025 - Present",
     station: "STATION ALPHA",
